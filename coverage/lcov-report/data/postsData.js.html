@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.9% </span>
+                <span class="strong">61.53% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/11</span>
+                <span class='fraction'>8/13</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">16.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>1/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.9% </span>
+                <span class="strong">61.53% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/11</span>
+                <span class='fraction'>8/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -83,18 +83,14 @@
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -102,27 +98,43 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const database = require('../infra/database');
 &nbsp;
-exports.getPosts = function (){
-    return database.query('select * from blog.post');
+exports.getPosts = <span class="fstat-no" title="function not covered" >fu</span>nction (){
+<span class="cstat-no" title="statement not covered" >    return database.query('select * from blog.post');</span>
 };
 &nbsp;
-exports.getPost = function (id) {
-    return database.one('select * from blog.post where id = $1', [id]);
+exports.getPost = <span class="fstat-no" title="function not covered" >fu</span>nction (id) {
+<span class="cstat-no" title="statement not covered" >    return database.one('select * from blog.post where id = $1', [id]);</span>
 };
 &nbsp;
-exports.savePost = function (post) {
-    return database.one('insert into blog.post (title, content) values ($1, $2) returning *', [post.title, post.content]);
+exports.getPostByTitle = function (title) {
+    return database.one('select * from blog.post where title = $1', [title]);
+};
+&nbsp;
+exports.savePost = <span class="fstat-no" title="function not covered" >fu</span>nction (post) {
+<span class="cstat-no" title="statement not covered" >    return database.one('insert into blog.post (title, content) values ($1, $2) returning *', [post.title, post.content]);</span>
 };
 &nbsp;
 exports.updatePost = <span class="fstat-no" title="function not covered" >fu</span>nction (id, post) {
 <span class="cstat-no" title="statement not covered" >    return database.none('update blog.post set title = $1, content = $2 where id =$3', [post.title, post.content, id]);</span>
 };
 &nbsp;
-exports.deletePost = function (id) {
-    return database.none('delete from blog.post where id = $1', [id]);
+exports.deletePost = <span class="fstat-no" title="function not covered" >fu</span>nction (id) {
+<span class="cstat-no" title="statement not covered" >    return database.none('delete from blog.post where id = $1', [id]);</span>
 };</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -130,7 +142,7 @@ exports.deletePost = function (id) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jul 06 2022 19:15:30 GMT-0300 (Horário Padrão de Brasília)
+                at Thu Jul 07 2022 10:14:30 GMT-0300 (Horário Padrão de Brasília)
             </div>
         <script src="../prettify.js"></script>
         <script>

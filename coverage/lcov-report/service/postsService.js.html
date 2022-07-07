@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.9% </span>
+                <span class="strong">38.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/11</span>
+                <span class='fraction'>7/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.9% </span>
+                <span class="strong">43.75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/11</span>
+                <span class='fraction'>7/16</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -83,45 +83,60 @@
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const postsData = require('../data/postsData');
 &nbsp;
-exports.getPosts = function (){
-    return postsData.getPosts();
+exports.getPosts = <span class="fstat-no" title="function not covered" >fu</span>nction (){
+<span class="cstat-no" title="statement not covered" >    return postsData.getPosts();</span>
 }
 &nbsp;
-exports.getPost = function (id) {
-    return postsData.getPost(id);
+exports.getPost = <span class="fstat-no" title="function not covered" >as</span>ync function (id) {
+    const post = <span class="cstat-no" title="statement not covered" >await postsData.getPost(id);</span>
+<span class="cstat-no" title="statement not covered" >    if (!post) <span class="cstat-no" title="statement not covered" >throw new Error('Post not found');</span></span>
+<span class="cstat-no" title="statement not covered" >    return post;</span>
 };
 &nbsp;
-exports.savePost = function (post) {
-    return postsData.savePost(post);
+exports.savePost = async function (post) {
+    const existingPost = await postsData.getPostByTitle(post.title);
+<span class="cstat-no" title="statement not covered" >    if (existingPost) <span class="cstat-no" title="statement not covered" >throw new Error('Post already exists');</span></span>
+<span class="cstat-no" title="statement not covered" >    return postsData.savePost(post);</span>
 }
 &nbsp;
-exports.deletePost = function (id) {
-    return postsData.deletePost(id);
+exports.deletePost = <span class="fstat-no" title="function not covered" >fu</span>nction (id) {
+<span class="cstat-no" title="statement not covered" >    return postsData.deletePost(id);</span>
 }
 &nbsp;
-exports.updatePost = <span class="fstat-no" title="function not covered" >fu</span>nction (id, post) {
+exports.updatePost = <span class="fstat-no" title="function not covered" >as</span>ync function (id, post) {
+<span class="cstat-no" title="statement not covered" >    await exports.getPost(id);</span>
 <span class="cstat-no" title="statement not covered" >    return postsData.updatePost(id, post);</span>
 }</pre></td></tr></table></pre>
 
@@ -130,7 +145,7 @@ exports.updatePost = <span class="fstat-no" title="function not covered" >fu</sp
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jul 06 2022 19:15:30 GMT-0300 (Horário Padrão de Brasília)
+                at Thu Jul 07 2022 10:14:30 GMT-0300 (Horário Padrão de Brasília)
             </div>
         <script src="../prettify.js"></script>
         <script>
