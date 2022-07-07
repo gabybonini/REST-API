@@ -1,3 +1,5 @@
+//Banco de dados usado somente para testes.
+
 const pgp = require('pg-promise')();
 const db = pgp({
     user: 'postgres',
